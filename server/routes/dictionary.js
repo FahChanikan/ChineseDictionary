@@ -9,13 +9,15 @@ router.get('/search', async (req, res) => {
   try {
     const [rows] = await db.query(
       `SELECT * FROM dictionary 
-       WHERE word LIKE ? OR pinyin LIKE ? OR meaning LIKE ?
-       LIMIT 20`,
+       WHERE (word LIKE ? OR pinyin LIKE ? OR meaning LIKE ?)
+       AND CHAR_LENGTH(word) <= 6
+       ORDER BY CHAR_LENGTH(word) ASC
+       LIMIT 10`,
       [`%${q}%`, `%${q}%`, `%${q}%`]
     )
     res.json(rows)
   } catch (error) {
-    res.status(500).json({ message: 'Error occur', error: error.message })
+    res.status(500).json({ message: 'error', error: error.message })
   }
 })
 

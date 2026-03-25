@@ -28,7 +28,7 @@ function Navbar() {
         <span style={{
           fontFamily: 'Sarabun, sans-serif',
           fontSize: '13px', fontWeight: '300', color: '#9a8e7e'
-        }}>พจนานุกรมจีน-ไทย</span>
+        }}>พจนานุกรมจีน-อังกฤษ</span>
       </div>
 
       <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '24px' }}>
