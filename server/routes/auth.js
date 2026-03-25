@@ -22,16 +22,15 @@ router.post('/register', async (req, res) => {
             'INSERT INTO users (email, password, username) VALUES (?, ?, ?)', [email, hashed, username]
         )
 
-        res.json({ message: "Register successfully!" })
+        res.json({ message: "Register successfully!" });
     } catch (error) {
         console.error('Register Error:', error);
         res.status(500).json({
             message: "An error occurred",
             error: error.message
-        }
-
-
-})
+        });
+    } 
+});
 
 //Login
 router.post('/login', async (req, res) => {
